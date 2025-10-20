@@ -1,8 +1,13 @@
 import express from "express";
+import dataBase from "./config/db.js";
+import dotenv from "dotenv";
 
+dotenv.config();
 
 const PORT = 8000;
 const app = express();
+
+dataBase();
 
 app.get("/test", (req, res) => {
   res.send("working good");
