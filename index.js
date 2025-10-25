@@ -9,6 +9,12 @@ const app = express();
 
 dataBase();
 
+app.use(express.json());
+
+import instaPageRoutes from "./routes/instaPageRoutes.js";
+
+app.use("/api", instaPageRoutes);
+
 app.get("/test", (req, res) => {
   res.send("working good");
 });
