@@ -1,6 +1,7 @@
 import express from "express";
 import dataBase from "./config/db.js";
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 
@@ -12,6 +13,13 @@ dataBase();
 app.use(express.json());
 
 import instaPageRoutes from "./routes/instaPageRoutes.js";
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 app.use("/api", instaPageRoutes);
 
