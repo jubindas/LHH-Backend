@@ -14,6 +14,8 @@ app.use(express.json());
 
 import instaPageRoutes from "./routes/instaPageRoutes.js";
 
+import budgetRoutes from "./routes/budgetRoutes.js";
+
 app.use(
   cors({
     origin: "http://localhost:5173",
@@ -22,6 +24,7 @@ app.use(
 );
 
 app.use("/api", instaPageRoutes);
+app.use("/api", budgetRoutes);
 
 app.get("/test", (req, res) => {
   res.send("working good");
